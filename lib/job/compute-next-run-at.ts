@@ -74,7 +74,7 @@ export const computeNextRunAt = function (this: Job): Job {
       }
 
       // If job has run in the past and skipDays is not null, add skipDays to nextDate
-      if (dateNow > lastRun && skipDays !== null) {
+      if (dateNow >= lastRun && skipDays !== null) {
         try {
           nextDate = new Date(
             nextDate.getTime() + (humanInterval(skipDays) ?? 0)
